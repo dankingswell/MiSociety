@@ -1,0 +1,54 @@
+﻿@model SocietyInABox.Models.Member
+
+@{
+    ViewBag.Title = "EditMember";
+}
+
+<h2>Edit Member Admin</h2>
+
+<div class="row">
+    <div class="col-md-8">
+        <section>
+            @using (Html.BeginForm("EditRequest", "Admin", FormMethod.Post, new { @class = "form-horizontal", role = "form"}))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.DateOfBirth, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        <input type="date" class="form-control" name="DateOfBirth" value="@Model.DateOfBirth.ToString("yyyy-MM-dd")" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+                @Html.HiddenFor(m => m.Id)
+            }
+        </section>
+    </div>
+
+</div>
+
+

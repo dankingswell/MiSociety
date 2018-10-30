@@ -1,0 +1,38 @@
+﻿#About {
+  padding-top: 4.8rem; }
+
+.aboutContent {
+  margin-bottom: 4.8rem; }
+
+#PostContent h2 {
+  padding-top: 4.8rem;
+  padding-bottom: 3.2rem;
+  text-align: center; }
+
+#PostContent hr {
+  border-top: 5px solid rgba(0, 0, 0, 0.1); }
+
+#posts {
+  list-style-type: none; }
+
+.postItem {
+  padding: 1.6rem;
+  background-color: #2e2f33; }
+  .postItem h3 {
+    font-size: 1.6rem; }
+  .postItem p {
+    padding: 1.3rem;
+    font-size: 1 rem;
+    color: #f7f4f4; }
+
+#Contact {
+  padding-top: 4.8rem; }
+  #Contact p {
+    padding-top: 1.3rem;
+    padding-bottom: 1.3rem; }
+
+#Members {
+  padding-top: 4.8rem; }
+
+#MemberTable {
+  margin-top: 3.2rem; }

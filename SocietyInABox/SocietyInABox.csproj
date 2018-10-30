@@ -49,12 +49,21 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -194,23 +203,85 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810261029243_initalMigration.cs" />
+    <Compile Include="Migrations\201810261029243_initalMigration.Designer.cs">
+      <DependentUpon>201810261029243_initalMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810261207232_ImplementedAdminPrivs.cs" />
+    <Compile Include="Migrations\201810261207232_ImplementedAdminPrivs.Designer.cs">
+      <DependentUpon>201810261207232_ImplementedAdminPrivs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810261214159_AddAdminPermissions.cs" />
+    <Compile Include="Migrations\201810261214159_AddAdminPermissions.Designer.cs">
+      <DependentUpon>201810261214159_AddAdminPermissions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810261217062_AddedAdminToDbSets.cs" />
+    <Compile Include="Migrations\201810261217062_AddedAdminToDbSets.Designer.cs">
+      <DependentUpon>201810261217062_AddedAdminToDbSets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810261239332_AdjustmentsToAdminRemovedStartDate.cs" />
+    <Compile Include="Migrations\201810261239332_AdjustmentsToAdminRemovedStartDate.Designer.cs">
+      <DependentUpon>201810261239332_AdjustmentsToAdminRemovedStartDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810261243561_AddedPermissionsName.cs" />
+    <Compile Include="Migrations\201810261243561_AddedPermissionsName.Designer.cs">
+      <DependentUpon>201810261243561_AddedPermissionsName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810261307562_AddPermissionsData.cs" />
+    <Compile Include="Migrations\201810261307562_AddPermissionsData.Designer.cs">
+      <DependentUpon>201810261307562_AddPermissionsData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810291010473_ImplementedUserName.cs" />
+    <Compile Include="Migrations\201810291010473_ImplementedUserName.Designer.cs">
+      <DependentUpon>201810291010473_ImplementedUserName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810291414001_CreatedPostModel.cs" />
+    <Compile Include="Migrations\201810291414001_CreatedPostModel.Designer.cs">
+      <DependentUpon>201810291414001_CreatedPostModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810291554394_RemovedAdminInfoInFavourOfRoleModels.cs" />
+    <Compile Include="Migrations\201810291554394_RemovedAdminInfoInFavourOfRoleModels.Designer.cs">
+      <DependentUpon>201810291554394_RemovedAdminInfoInFavourOfRoleModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810291555263_MakeRoleModels.cs" />
+    <Compile Include="Migrations\201810291555263_MakeRoleModels.Designer.cs">
+      <DependentUpon>201810291555263_MakeRoleModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AdminPermissions.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\RoleName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\MembersOnlyViewModel.cs" />
+    <Compile Include="ViewModels\PostsViewModel.cs" />
+    <Compile Include="ViewModels\RegisterAndMemberViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap-cyborg.css" />
+    <Content Include="Content\ViewStyles\Styles.css">
+      <DependentUpon>Styles.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\ViewStyles\Styles.min.css">
+      <DependentUpon>Styles.css</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -220,6 +291,16 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\ViewStyles\Styles.scss" />
+    <Content Include="Content\ViewStyles\Views\Posts.scss" />
+    <Content Include="Content\ViewStyles\Partials\Settings.scss" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="Content\ViewStyles\Views\About.scss" />
+    <Content Include="Content\ViewStyles\Views\Contact.scss" />
+    <Content Include="Content\ViewStyles\Views\Members.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -265,6 +346,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Admin\Members.cshtml" />
+    <Content Include="Views\Posts\Index.cshtml" />
+    <Content Include="Views\Admin\CreatePost.cshtml" />
+    <Content Include="Views\Admin\EditMember.cshtml" />
+    <Content Include="Views\Shared\_Navbar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -281,6 +367,41 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201810261029243_initalMigration.resx">
+      <DependentUpon>201810261029243_initalMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810261207232_ImplementedAdminPrivs.resx">
+      <DependentUpon>201810261207232_ImplementedAdminPrivs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810261214159_AddAdminPermissions.resx">
+      <DependentUpon>201810261214159_AddAdminPermissions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810261217062_AddedAdminToDbSets.resx">
+      <DependentUpon>201810261217062_AddedAdminToDbSets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810261239332_AdjustmentsToAdminRemovedStartDate.resx">
+      <DependentUpon>201810261239332_AdjustmentsToAdminRemovedStartDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810261243561_AddedPermissionsName.resx">
+      <DependentUpon>201810261243561_AddedPermissionsName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810261307562_AddPermissionsData.resx">
+      <DependentUpon>201810261307562_AddPermissionsData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810291010473_ImplementedUserName.resx">
+      <DependentUpon>201810291010473_ImplementedUserName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810291414001_CreatedPostModel.resx">
+      <DependentUpon>201810291414001_CreatedPostModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810291554394_RemovedAdminInfoInFavourOfRoleModels.resx">
+      <DependentUpon>201810291554394_RemovedAdminInfoInFavourOfRoleModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810291555263_MakeRoleModels.resx">
+      <DependentUpon>201810291555263_MakeRoleModels.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -300,7 +421,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50042</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50042/</IISUrl>
+          <IISUrl>http://localhost:50043/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
@@ -315,7 +436,9 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\BuildWebCompiler.1.12.394\build\BuildWebCompiler.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\BuildWebCompiler.1.12.394\build\BuildWebCompiler.targets'))" />
   </Target>
+  <Import Project="..\packages\BuildWebCompiler.1.12.394\build\BuildWebCompiler.targets" Condition="Exists('..\packages\BuildWebCompiler.1.12.394\build\BuildWebCompiler.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

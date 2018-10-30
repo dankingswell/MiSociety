@@ -1,0 +1,32 @@
+﻿#PostContent {
+
+    h2 {
+        padding-top: $xl-size;
+        padding-bottom:$l-size;
+        text-align:center;
+    }
+
+    hr {
+        border-top: 5px solid rgba(0, 0, 0, 0.1)
+    }
+}
+
+#posts{
+    list-style-type:none;
+}
+
+.postItem {
+    padding: $m-size;
+    background-color: $ContrastingBackgroundGrey;
+
+    h3 {
+        font-size: $m-size;
+        
+    }
+
+    p {
+        padding: $s-size;
+        font-size: $xs-size;
+        color:$TextWhite;
+    }
+}

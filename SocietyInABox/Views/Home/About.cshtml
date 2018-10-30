@@ -1,7 +1,46 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<div id="About">
+
+    <div id="Features" class="aboutContent">
+        <h2>MiSociety</h2>
+        Full Customizable content to display to your users.
+        you will be able to inform anyone interested in joining your society what makes you different.
+        </p>
+
+        <p>Images, branding, and content can be customized to suit your audience</p>
+     </div>
+
+    <div id="JoiningProcess" class="aboutContent">
+        <h2>Joining Process</h2>
+        <p>Informing potential members of the joining process and any preliminary steps they may need to take if necessary.</p>
+        <p>we've already taken care of the sign-up process through the register functionality</p>
+        <p>Those in charge of administering and maintaining the society will have access to features allowing them to better manage members and content.</p>
+    </div>
+
+    <div id="Pricing" class="aboutContent">
+        <h2>Pricing</h2>
+
+        <p> arranging subscription payments is an important part of funding any society and we will soon be implementing a full payment system to take the hassle out of the day to day runnings of your society</p>
+    </div>
+    </div>
+@section scripts
+    {
+    
+    <script>
+        $(document).ready( function(){
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const myParam = urlParams.get('id');
+
+            $('html, body').animate({
+                scrollTop: $("#" + myParam).offset().top
+            }, 2000);
+
+        })
+    </script>
+    
+    
+    }

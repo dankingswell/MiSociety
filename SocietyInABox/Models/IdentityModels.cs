@@ -20,6 +20,13 @@ namespace SocietyInABox.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+
+        // Data Sets
+        public DbSet<Member> Members { get; set; }
+        public DbSet<AdminPermissions> AdminPermissions { get; set; }
+        public DbSet<Post> Posts { get; set; }
+
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

@@ -1,0 +1,56 @@
+﻿@model SocietyInABox.ViewModels.MembersOnlyViewModel
+
+@{
+    ViewBag.Title = "View";
+}
+
+<div id="Members">
+    <h2>Members Tables</h2>
+
+    <table id="MemberTable" class="table table-dark thead-light">
+        <tr><th>Name</th><th>D.O.B</th><th>Delete</th></tr>
+        @{
+            foreach (var member in Model.Members)
+
+            {
+
+                <tr>
+                    <td>@Html.ActionLink(@member.FirstName + " " + @member.LastName, "EditMember/" + member.Id, "Admin")</td>
+                    <td>@member.DateOfBirth</td>
+                    <td><button data-member-id="@member.Id" class="btn btn-danger removeMember">Delete</button></td>
+                </tr>
+            }
+
+        }
+
+    </table>
+
+</div>
+
+    @section scripts
+    {
+
+        <script>
+
+            $(document).ready(function () {
+                $("#MemberTable .removeMember").on("click", function () {
+                    var Button = $(this);
+                    if (confirm("Are you sure you would like to remove this member?")) {
+                        $.ajax({
+                            url: "/Admin/RemoveMember/" + $(this).attr("data-member-id"),
+                            method: "DELETE",
+                            success: function () {
+                                Button.parents("tr").remove();
+                            }
+
+                        })
+
+                    }
+                })
+            });
+
+
+        </script>
+
+    }
+

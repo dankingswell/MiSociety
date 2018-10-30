@@ -1,0 +1,30 @@
+﻿@model SocietyInABox.ViewModels.PostsViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div id="PostContent">
+    <h2> News Board </h2>
+    <ul id="posts">
+        @{
+            foreach (var post in Model.Posts)
+            {
+                <li class="postItem">
+                    <h3>@post.Header</h3>
+                    
+                    <p>
+                        @post.Content
+                    </p>
+
+
+                </li>
+                <hr />
+            }
+        }
+    </ul>
+</div>
+
+
