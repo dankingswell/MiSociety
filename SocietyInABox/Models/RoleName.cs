@@ -9,6 +9,7 @@ namespace SocietyInABox.Models
     {
         public const string CanManageContent = "CanCreateContent";
         public const string CanManageMembers = "CanManageMembers";
+        public const string CanEditPermissions = "CanEditPermissions";
 
 
     }

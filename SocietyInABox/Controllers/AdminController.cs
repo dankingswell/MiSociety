@@ -111,5 +111,13 @@ namespace SocietyInABox.Controllers
 
             return RedirectToAction("Members", "Admin");
         }
+
+        [Authorize(Roles = RoleName.CanEditPermissions )]
+        public ActionResult Management()
+        {
+            _context.Members.Where(M => M.MembershipType == "Admin").ToList();
+
+            return View();
+        }
     }
 }

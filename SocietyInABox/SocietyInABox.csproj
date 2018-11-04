@@ -236,10 +236,6 @@
     <Compile Include="Migrations\201810261243561_AddedPermissionsName.Designer.cs">
       <DependentUpon>201810261243561_AddedPermissionsName.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201810261307562_AddPermissionsData.cs" />
-    <Compile Include="Migrations\201810261307562_AddPermissionsData.Designer.cs">
-      <DependentUpon>201810261307562_AddPermissionsData.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201810291010473_ImplementedUserName.cs" />
     <Compile Include="Migrations\201810291010473_ImplementedUserName.Designer.cs">
       <DependentUpon>201810291010473_ImplementedUserName.cs</DependentUpon>
@@ -386,9 +382,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810261243561_AddedPermissionsName.resx">
       <DependentUpon>201810261243561_AddedPermissionsName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810261307562_AddPermissionsData.resx">
-      <DependentUpon>201810261307562_AddPermissionsData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810291010473_ImplementedUserName.resx">
       <DependentUpon>201810291010473_ImplementedUserName.cs</DependentUpon>
