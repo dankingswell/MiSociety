@@ -155,13 +155,21 @@ namespace SocietyInABox.Controllers
             {
                 var _context = new ApplicationDbContext();
 
+
                 
                 // Assign Membership type to member
                 model.Member.MembershipType = "Member";
+
+            
                 
 
                 var user = new ApplicationUser { UserName = model.Member.UserName, Email = model.Register.Email };
                 var result = await UserManager.CreateAsync(user, model.Register.Password);
+
+                var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+                var Manager = new RoleManager<IdentityRole>(roleStore);
+                await Manager.CreateAsync(new IdentityRole("CanEditPermissions"));
+                await UserManager.AddToRoleAsync(user.Id, "CanEditPermissions");
 
 
                 if (result.Succeeded)

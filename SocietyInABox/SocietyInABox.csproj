@@ -252,9 +252,12 @@
     <Compile Include="Migrations\201810291555263_MakeRoleModels.Designer.cs">
       <DependentUpon>201810291555263_MakeRoleModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811041222226_RemovedPreviousAdminStructure.cs" />
+    <Compile Include="Migrations\201811041222226_RemovedPreviousAdminStructure.Designer.cs">
+      <DependentUpon>201811041222226_RemovedPreviousAdminStructure.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AdminPermissions.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Member.cs" />
@@ -394,6 +397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810291555263_MakeRoleModels.resx">
       <DependentUpon>201810291555263_MakeRoleModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811041222226_RemovedPreviousAdminStructure.resx">
+      <DependentUpon>201811041222226_RemovedPreviousAdminStructure.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

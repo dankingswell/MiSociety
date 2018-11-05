@@ -23,7 +23,6 @@ namespace SocietyInABox.Models
 
         // Data Sets
         public DbSet<Member> Members { get; set; }
-        public DbSet<AdminPermissions> AdminPermissions { get; set; }
         public DbSet<Post> Posts { get; set; }
 
 
